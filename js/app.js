@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const quoteText = document.getElementById('quote-text');
   const historyList = document.getElementById('history-list');
 
+  const resetTodayBtn = document.getElementById('reset-today-btn');
+
   const reduceMotion = typeof window.matchMedia === 'function' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -47,6 +49,21 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => piece.remove(), 1000); // safety net
     }
   }
+
+  if (resetTodayBtn) {
+  resetTodayBtn.addEventListener('click', () => {
+    const confirmed = window.confirm('متأكد تحب تمسح توفير اليوم؟ التوفير متاع الأيام الأخرى ما يتمسّش.');
+    if (!confirmed) return;
+
+    Storage.clearToday();
+
+    quoteCard.hidden = true;
+    quoteText.textContent = '';
+
+    renderStats();
+    renderHistory();
+  });
+}
 
   function celebrate() {
     if (reduceMotion) return;

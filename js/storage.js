@@ -56,5 +56,13 @@ const Storage = (() => {
     return record;
   }
 
-  return { getRecords, addRecord };
+  function clearToday() {
+    const today = formatDate(new Date());
+    const remaining = getRecords().filter(r => r.date !== today);
+    saveRecords(remaining);
+    return remaining;
+  }
+
+  return { getRecords, addRecord, clearToday };
+
 })();

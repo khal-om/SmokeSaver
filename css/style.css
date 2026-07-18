@@ -82,7 +82,15 @@ main {
 .mascot {
   display: inline-block;
   font-size: 60px;
-  animation: bob 4s ease-in-out infinite;
+  animation: slither 2.4s ease-in-out infinite;
+}
+
+@keyframes slither {
+  0%   { transform: translateX(0) rotate(0deg); }
+  25%  { transform: translateX(6px) rotate(8deg); }
+  50%  { transform: translateX(0) rotate(0deg); }
+  75%  { transform: translateX(-6px) rotate(-8deg); }
+  100% { transform: translateX(0) rotate(0deg); }
 }
 
 .mascot.celebrate {

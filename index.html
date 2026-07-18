@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
   <title>شقّاقة</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#e8a33c">
 </head>
 <body>
   <div class="app">
@@ -95,5 +97,11 @@
   <script src="js/quotes.js"></script>
   <script src="js/statistics.js"></script>
   <script src="js/app.js"></script>
+
+  <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js");
+  }
+  </script>
 </body>
 </html>

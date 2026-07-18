@@ -1,0 +1,10 @@
+{
+  "name": "شقّاقة فنّوش الإلكترونية",
+  "short_name": "شقّاقة",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#15130f",
+  "theme_color": "#e8a33c",
+  "direction": "rtl",
+  "lang": "ar"
+}

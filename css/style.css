@@ -81,10 +81,21 @@ main {
 
 .mascot {
   display: inline-block;
+  animation: ghostFloat 3.2s ease-in-out infinite;
 }
 
 .mascot.celebrate {
   animation: mascotPop 0.6s ease;
+}
+
+.ghost-eye {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: blink 4.5s ease-in-out infinite;
+}
+
+.ghost-eye-r {
+  animation-delay: 0.15s;
 }
 
 .app-name {
@@ -337,6 +348,19 @@ main {
   100% { transform: translateY(0) rotate(0deg); }
 }
 
+@keyframes ghostFloat {
+  0%   { transform: translateY(0) rotate(0deg); }
+  20%  { transform: translateY(-6px) rotate(-3deg); }
+  45%  { transform: translateY(-2px) rotate(2deg); }
+  70%  { transform: translateY(-8px) rotate(-2deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+
 @keyframes confettiBurst {
   0%   { transform: translate(0, 0) rotate(0deg); opacity: 1; }
   30%  { transform: translate(calc(var(--dx) * 0.35), var(--rise)) rotate(calc(var(--r) * 0.3)); opacity: 1; }
@@ -346,6 +370,7 @@ main {
 @media (prefers-reduced-motion: reduce) {
   .mascot,
   .mascot.celebrate,
+  .ghost-eye,
   .save-btn.celebrate,
   .quote-card:not([hidden]) {
     animation: none;

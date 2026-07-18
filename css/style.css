@@ -82,15 +82,19 @@ main {
 .mascot {
   display: inline-block;
   font-size: 60px;
-  animation: slither 2.4s ease-in-out infinite;
+  animation: slither 2.8s ease-in-out infinite;
 }
 
 @keyframes slither {
-  0%   { transform: translateX(0) rotate(0deg); }
-  25%  { transform: translateX(6px) rotate(8deg); }
-  50%  { transform: translateX(0) rotate(0deg); }
-  75%  { transform: translateX(-6px) rotate(-8deg); }
-  100% { transform: translateX(0) rotate(0deg); }
+  0%    { transform: translate(0, 0) rotate(0deg); }
+  12.5% { transform: translate(4px, -1px) rotate(6deg); }
+  25%   { transform: translate(7px, 0) rotate(10deg); }
+  37.5% { transform: translate(4px, 1px) rotate(5deg); }
+  50%   { transform: translate(0, 0) rotate(0deg); }
+  62.5% { transform: translate(-4px, -1px) rotate(-6deg); }
+  75%   { transform: translate(-7px, 0) rotate(-10deg); }
+  87.5% { transform: translate(-4px, 1px) rotate(-5deg); }
+  100%  { transform: translate(0, 0) rotate(0deg); }
 }
 
 .mascot.celebrate {

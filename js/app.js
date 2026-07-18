@@ -14,6 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const reduceMotion = typeof window.matchMedia === 'function' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduceMotion && mascotEl && typeof mascotEl.pauseAnimations === 'function') {
+    mascotEl.pauseAnimations();
+  }
   const CONFETTI_COLORS = ['#e8a33c', '#f3efe8', '#c97f22'];
 
   function spawnConfetti(anchorEl) {

@@ -1,0 +1,371 @@
+/* ==========================================================================
+   Tawfira — stylesheet
+   Near-black warm background, single honey accent, rounded cards.
+   No gradients, no glow — restraint by design.
+   ========================================================================== */
+
+:root {
+  --bg: #15130f;
+  --surface: #1e1b15;
+  --surface-alt: #241e14;
+  --accent: #e8a33c;
+  --accent-deep: #c97f22;
+  --accent-soft: rgba(232, 163, 60, 0.16);
+  --text: #f3efe8;
+  --text-muted: #948c7e;
+  --radius: 20px;
+  --radius-sm: 14px;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ===== Reset ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+button, input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ===== Layout ===== */
+.app {
+  max-width: 460px;
+  margin: 0 auto;
+  padding: max(32px, calc(env(safe-area-inset-top) + 16px)) 18px
+           max(40px, calc(env(safe-area-inset-bottom) + 24px));
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ===== Header ===== */
+.app-header {
+  text-align: center;
+  padding-top: 8px;
+}
+
+.mascot {
+  display: inline-block;
+  font-size: 60px;
+  animation: bob 4s ease-in-out infinite;
+}
+
+.mascot.celebrate {
+  animation: mascotPop 0.6s ease;
+}
+
+.app-name {
+  margin: 12px 0 4px;
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.greeting {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ===== Shared card ===== */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+/* ===== Saving card ===== */
+.saving-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: center;
+}
+
+.question {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 4px 16px;
+}
+
+#amount-input {
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 14px 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+#amount-input::-webkit-outer-spin-button,
+#amount-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#amount-input {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.currency {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.save-btn {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background: var(--accent);
+  color: #1a1308;
+  box-shadow: 0 4px 14px rgba(232, 163, 60, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  transition: transform 0.15s ease;
+}
+
+.save-btn:active {
+  transform: scale(0.97);
+}
+
+.save-btn.celebrate {
+  animation: btnPop 0.42s ease;
+}
+
+/* ===== Quote card ===== */
+.quote-card {
+  background: var(--surface-alt);
+  border: 1px solid var(--accent-soft);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.quote-card:not([hidden]) {
+  animation: quoteIn 0.45s ease;
+}
+
+/* ===== Stats ===== */
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stats-hero,
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.stat-card {
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.stat-hero {
+  padding: 18px 14px;
+}
+
+.stat-hero .stat-value {
+  font-size: 1.55rem;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.stat-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== History ===== */
+.history-title {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history-item {
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.history-item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.history-amount {
+  font-size: 1.02rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.history-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.history-quote {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.history-empty {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding: 24px 4px;
+}
+
+/* ===== Confetti ===== */
+.confetti-piece {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 7px;
+  height: 12px;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 50;
+  animation: confettiBurst 800ms ease-out forwards;
+}
+
+/* ===== Motion ===== */
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes quoteIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes btnPop {
+  0% { transform: scale(1); }
+  35% { transform: scale(0.94); }
+  65% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes mascotPop {
+  0% { transform: translateY(0) rotate(0deg); }
+  30% { transform: translateY(-10px) rotate(-8deg); }
+  60% { transform: translateY(0) rotate(6deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes confettiBurst {
+  0%   { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  30%  { transform: translate(calc(var(--dx) * 0.35), var(--rise)) rotate(calc(var(--r) * 0.3)); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--fall)) rotate(var(--r)); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mascot,
+  .mascot.celebrate,
+  .save-btn.celebrate,
+  .quote-card:not([hidden]) {
+    animation: none;
+  }
+
+  .confetti-piece {
+    display: none;
+  }
+}
+
+/* ===== Accessibility ===== */
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

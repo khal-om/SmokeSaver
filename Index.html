@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <title>توفيرة</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app">
+
+    <header class="app-header">
+      <div class="mascot" aria-hidden="true">🐿️</div>
+      <h1 class="app-name">توفيرة</h1>
+      <p class="greeting">أهلا بيك 👋</p>
+      <p class="subtitle">يلا نشوفو قداش ربحت اليوم 😄</p>
+    </header>
+
+    <main>
+      <section class="card saving-card" aria-label="تسجيل التوفير">
+        <label for="amount-input" class="question">قداش وفّرت اليوم؟</label>
+        <div class="input-row">
+          <input
+            type="number"
+            id="amount-input"
+            inputmode="decimal"
+            step="0.001"
+            min="0"
+            placeholder="0.000"
+            aria-label="المبلغ بالدينار"
+          >
+          <span class="currency">د.ت</span>
+        </div>
+        <button type="button" id="save-btn" class="save-btn">سجّل الربحة 💰</button>
+      </section>
+
+      <section class="quote-card" id="quote-card" hidden>
+        <p id="quote-text"></p>
+      </section>
+
+      <section class="stats" aria-label="الإحصائيات">
+        <div class="stats-hero">
+          <div class="stat-card stat-hero">
+            <span class="stat-label">المجموع</span>
+            <span class="stat-value" id="stat-total">0.000 د.ت</span>
+          </div>
+          <div class="stat-card stat-hero">
+            <span class="stat-label">اليوم</span>
+            <span class="stat-value" id="stat-today">0.000 د.ت</span>
+          </div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-label">أحسن وفرة</span>
+            <span class="stat-value" id="stat-best">0.000 د.ت</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">الانتصارات</span>
+            <span class="stat-value" id="stat-victories">0</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">هذا الأسبوع</span>
+            <span class="stat-value" id="stat-week">0.000 د.ت · 0</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">هذا الشهر</span>
+            <span class="stat-value" id="stat-month">0.000 د.ت · 0</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="history" aria-label="السجل">
+        <h2 class="history-title">السجل</h2>
+        <ul id="history-list" class="history-list">
+          <!-- entries injected by app.js in Step 4 -->
+        </ul>
+      </section>
+    </main>
+
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/quotes.js"></script>
+  <script src="js/statistics.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
